@@ -1,0 +1,56 @@
+<h1>Projects</h1>
+
+<div class="container">
+  <div class="button-row">
+    <button mat-raised-button color="primary" (click)="openCreateDialog()">
+      Add Project
+    </button>
+    <span class="spacer"></span>
+  </div>
+  <table mat-table matSort [dataSource]="projects$">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+      <mat-cell *matCellDef="let project">{{ project.name }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Description</mat-header-cell
+      >
+      <mat-cell *matCellDef="let project">{{ project.description }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="startDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Start Date</mat-header-cell
+      >
+      <mat-cell *matCellDef="let project">{{
+        project.startDate.toDate() | date
+      }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="endDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >End Date</mat-header-cell
+      >
+      <mat-cell *matCellDef="let project">{{
+        project.endDate.toDate() | date
+      }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+      <mat-cell *matCellDef="let project">
+        <button mat-icon-button (click)="openEditDialog(project)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteProject(project)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </table>
+</div>

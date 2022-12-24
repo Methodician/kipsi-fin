@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "kipsi-challenge": {
+      "hosting": {
+        "kipsi-fin": [
+          "kipsi-challenge"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "kipsi-challenge"
+  }
+}
