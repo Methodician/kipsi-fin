@@ -5,22 +5,22 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Expense } from '../../../models';
 
 @Component({
-  selector: 'app-add-expense',
-  templateUrl: './add-expense.component.html',
-  styleUrls: ['./add-expense.component.scss'],
+  selector: 'app-edit-expense',
+  templateUrl: './edit-expense.component.html',
+  styleUrls: ['./edit-expense.component.scss'],
 })
-export class AddExpenseComponent {
+export class EditExpenseComponent {
   form: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private dialogRef: MatDialogRef<AddExpenseComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: { projectId: string }
+    private dialogRef: MatDialogRef<EditExpenseComponent>,
+    @Inject(MAT_DIALOG_DATA) private data: { expense: Expense }
   ) {
     this.form = this.formBuilder.group({
-      date: [null, Validators.required],
-      amount: [null, Validators.required],
-      isQualified: [true],
+      date: [this.data.expense.date, Validators.required],
+      amount: [this.data.expense.amount, Validators.required],
+      isQualified: [this.data.expense.isQualified],
     });
   }
 
@@ -28,7 +28,8 @@ export class AddExpenseComponent {
     if (this.form.valid) {
       const expense: Expense = {
         ...this.form.value,
-        projectId: this.data.projectId,
+        id: this.data.expense.id,
+        projectId: this.data.expense.projectId,
       };
       this.dialogRef.close(expense);
     } else {

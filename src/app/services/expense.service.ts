@@ -11,6 +11,7 @@ export class ExpenseService {
 
   async createExpense(expense: Expense): Promise<string> {
     const id = this.firestore.createId();
+    expense.id = id;
     await this.firestore.doc(`expenses/${id}`).set(expense);
     return id;
   }

@@ -9,6 +9,7 @@ import { ProjectService } from 'src/app/services/project.service';
 import { EditProjectComponent } from '../../dialogs/edit-project/edit-project.component';
 import { AddExpenseComponent } from '../../dialogs/add-expense/add-expense.component';
 import { ProjectUpdate } from 'src/app/models/project.models';
+import { EditExpenseComponent } from '../../dialogs/edit-expense/edit-expense.component';
 
 @Component({
   selector: 'app-project-detail',
@@ -88,12 +89,21 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   openExpenseEditDialog(expense: Expense): void {
-    console.log('openEditDialog');
-    console.log(expense);
-    // const dialogRef = this.dialog.open(EditExpenseDialogComponent, {
-    //   width: '400px',
-    //   data: { expense }
-    // });
+    const dialogRef = this.dialog.open(EditExpenseComponent, {
+      width: '400px',
+      data: { expense },
+    });
+
+    dialogRef.afterClosed().subscribe((expense) => {
+      if (expense) {
+        this.expenseService.updateExpense(expense);
+      } else {
+        // This feedback should be provided in a better way
+        alert(
+          'Expense update failed (we would provide this feedback in a better way IRL)'
+        );
+      }
+    });
   }
 
   deleteExpense(expense: Expense): void {

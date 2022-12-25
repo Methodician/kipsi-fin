@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Edit Expense</h1>
+
+<form [formGroup]="form" (ngSubmit)="save()">
+  <div mat-dialog-content>
+    <mat-form-field>
+      <input matInput type="date" formControlName="date" placeholder="Date" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        formControlName="amount"
+        placeholder="Amount"
+      />
+    </mat-form-field>
+
+    <mat-checkbox formControlName="isQualified" color="primary"
+      >Is Qualified?</mat-checkbox
+    >
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-button type="submit" [disabled]="form.invalid">Save</button>
+  </div>
+</form>

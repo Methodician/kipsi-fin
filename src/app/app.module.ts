@@ -43,6 +43,7 @@ import { ProjectListComponent } from './components/projects/project-list/project
 import { EditProjectComponent } from './components/dialogs/edit-project/edit-project.component';
 import { ProjectDetailComponent } from './components/projects/project-detail/project-detail.component';
 import { AddExpenseComponent } from './components/dialogs/add-expense/add-expense.component';
+import { EditExpenseComponent } from './components/dialogs/edit-expense/edit-expense.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { AddExpenseComponent } from './components/dialogs/add-expense/add-expens
     EditProjectComponent,
     ProjectDetailComponent,
     AddExpenseComponent,
+    EditExpenseComponent,
   ],
   imports: [
     BrowserModule,
