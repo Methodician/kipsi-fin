@@ -1,0 +1,39 @@
+.project-detail-card {
+  margin: 16px;
+
+  .mat-card-content {
+    display: flex;
+    flex-direction: row;
+
+    dl {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      .details-row {
+        display: flex;
+        flex-direction: row;
+        dt {
+          font-weight: bold;
+          width: 75px;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+.expense-list-card {
+  margin: 16px;
+
+  .mat-card-actions {
+    margin: -8px 0;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-actions {
+  min-width: 72px;
+}

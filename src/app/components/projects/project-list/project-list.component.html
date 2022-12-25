@@ -47,6 +47,9 @@
         <button mat-icon-button (click)="deleteProject(project)">
           <mat-icon>delete</mat-icon>
         </button>
+        <button mat-icon-button [routerLink]="['/projects', project.id]">
+          <mat-icon>open_in_new</mat-icon>
+        </button>
       </mat-cell>
     </ng-container>
 

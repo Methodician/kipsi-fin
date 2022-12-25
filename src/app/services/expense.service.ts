@@ -9,9 +9,10 @@ import { Expense, Project } from '../models';
 export class ExpenseService {
   constructor(private firestore: AngularFirestore) {}
 
-  createExpense(expense: Expense): Promise<void> {
+  async createExpense(expense: Expense): Promise<string> {
     const id = this.firestore.createId();
-    return this.firestore.doc(`expenses/${id}`).set(expense);
+    await this.firestore.doc(`expenses/${id}`).set(expense);
+    return id;
   }
 
   updateExpense(expense: Expense): Promise<void> {
@@ -30,5 +31,9 @@ export class ExpenseService {
       return this.getExpenseById(expenseId);
     });
     return combineLatest(expenseObservables);
+  }
+
+  deleteExpense(id: string): Promise<void> {
+    return this.firestore.doc(`expenses/${id}`).delete();
   }
 }

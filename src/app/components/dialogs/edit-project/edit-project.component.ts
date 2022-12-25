@@ -28,15 +28,22 @@ export class EditProjectComponent {
 
   onSubmit(): void {
     if (this.form.valid) {
-      this.projectService.updateProject({
-        id: this.data.project.id,
-        name: this.form.get('name')!.value,
-        description: this.form.get('description')!.value,
-        startDate: this.form.get('startDate')!.value,
-        endDate: this.form.get('endDate')!.value,
-        expenseIds: this.data.project.expenseIds,
-      });
-      this.dialogRef.close();
+      this.projectService
+        .updateProject({
+          id: this.data.project.id,
+          name: this.form.get('name')!.value,
+          description: this.form.get('description')!.value,
+          startDate: this.form.get('startDate')!.value,
+          endDate: this.form.get('endDate')!.value,
+          expenseIds: this.data.project.expenseIds,
+        })
+        .then(() => {
+          this.dialogRef.close(true);
+        })
+        .catch((error: any) => {
+          console.error(error);
+          this.dialogRef.close(false);
+        });
     }
   }
 

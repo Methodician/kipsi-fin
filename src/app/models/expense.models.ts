@@ -4,4 +4,5 @@ export interface Expense {
   amount: number;
   isQualified: boolean;
   description: string;
+  projectId: string;
 }

@@ -39,11 +39,15 @@ export class ProjectListComponent implements OnInit {
       if (result) {
         this.projectService.createProject(result).then(() => {
           // This feedback should be provided in a better way
-          alert('Project created successfully');
+          alert(
+            'Project created successfully (we would provide this feedback in a better way IRL)'
+          );
         });
       } else {
         // This feedback should be provided in a better way
-        alert('Project creation cancelled');
+        alert(
+          'Project creation cancelled (we would provide this feedback in a better way IRL)'
+        );
       }
     });
   }

@@ -26,6 +26,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 // icon
 import { MatIconModule } from '@angular/material/icon';
+// card
+import { MatCardModule } from '@angular/material/card';
+// checkbox
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // Internal
 import { environment } from '../environments/environment';
@@ -37,6 +41,8 @@ import { ExpensesComponent } from './components/expenses/expenses.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectListComponent } from './components/projects/project-list/project-list.component';
 import { EditProjectComponent } from './components/dialogs/edit-project/edit-project.component';
+import { ProjectDetailComponent } from './components/projects/project-detail/project-detail.component';
+import { AddExpenseComponent } from './components/dialogs/add-expense/add-expense.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +52,8 @@ import { EditProjectComponent } from './components/dialogs/edit-project/edit-pro
     ProjectsComponent,
     ProjectListComponent,
     EditProjectComponent,
+    ProjectDetailComponent,
+    AddExpenseComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +73,8 @@ import { EditProjectComponent } from './components/dialogs/edit-project/edit-pro
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
+    MatCardModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
