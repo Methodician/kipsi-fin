@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { Project } from 'src/app/models';
@@ -12,6 +13,7 @@ import { EditProjectComponent } from '../../dialogs/edit-project/edit-project.co
   styleUrls: ['./project-list.component.scss'],
 })
 export class ProjectListComponent implements OnInit {
+  searchControl = new FormControl<string>('', { nonNullable: true });
   projects$: Observable<Project[]>;
   displayedColumns: string[] = [
     'name',

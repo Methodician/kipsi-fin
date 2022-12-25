@@ -44,6 +44,7 @@ import { EditProjectComponent } from './components/dialogs/edit-project/edit-pro
 import { ProjectDetailComponent } from './components/projects/project-detail/project-detail.component';
 import { AddExpenseComponent } from './components/dialogs/add-expense/add-expense.component';
 import { EditExpenseComponent } from './components/dialogs/edit-expense/edit-expense.component';
+import { ProjectFilterPipe } from './pipes/project-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { EditExpenseComponent } from './components/dialogs/edit-expense/edit-exp
     ProjectDetailComponent,
     AddExpenseComponent,
     EditExpenseComponent,
+    ProjectFilterPipe,
   ],
   imports: [
     BrowserModule,

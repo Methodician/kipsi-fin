@@ -1,4 +1,8 @@
 <mat-card class="project-detail-card" *ngIf="project$ | async as project">
+  <button mat-icon-button routerLink="/">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
   <mat-card-header>
     <mat-card-title>{{ project.name }}</mat-card-title>
   </mat-card-header>

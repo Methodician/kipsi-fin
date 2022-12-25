@@ -1,13 +1,25 @@
 <h1>Projects</h1>
 
-<div class="container">
+<div class="container" *ngIf="projects$ | async as projects">
   <div class="button-row">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Search"
+        [formControl]="searchControl"
+      />
+    </mat-form-field>
     <button mat-raised-button color="primary" (click)="openCreateDialog()">
       Add Project
     </button>
     <span class="spacer"></span>
   </div>
-  <table mat-table matSort [dataSource]="projects$">
+  <table
+    mat-table
+    matSort
+    [dataSource]="projects | projectFilter : searchControl.value"
+  >
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
       <mat-cell *matCellDef="let project">{{ project.name }}</mat-cell>
