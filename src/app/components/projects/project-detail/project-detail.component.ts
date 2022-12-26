@@ -107,6 +107,14 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   deleteExpense(expense: Expense): void {
-    this.expenseService.deleteExpense(expense.id);
+    // This should be done in a transaction or batch update
+    this.project$?.pipe(first()).subscribe((project) => {
+      const projectUpdate: ProjectUpdate = {
+        id: project.id,
+        expenseIds: project.expenseIds.filter((id) => id !== expense.id),
+      };
+      this.projectService.updateProject(projectUpdate);
+      this.expenseService.deleteExpense(expense.id);
+    });
   }
 }
