@@ -15,13 +15,7 @@ import { EditProjectComponent } from '../../dialogs/edit-project/edit-project.co
 export class ProjectListComponent implements OnInit {
   searchControl = new FormControl<string>('', { nonNullable: true });
   projects$: Observable<Project[]>;
-  displayedColumns: string[] = [
-    'name',
-    'description',
-    'startDate',
-    'endDate',
-    'actions',
-  ];
+  displayedColumns: string[] = ['name', 'startDate', 'endDate', 'actions'];
 
   constructor(
     private projectService: ProjectService,

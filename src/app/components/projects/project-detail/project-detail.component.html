@@ -10,7 +10,7 @@
     <dl>
       <span class="details-row">
         <dt>Description:</dt>
-        <dd>{{ project.description }}</dd>
+        <dd class="description-text">{{ project.description }}</dd>
       </span>
       <span class="details-row">
         <dt>Start Date:</dt>
@@ -23,11 +23,11 @@
       <span class="details-row">
         <dt>Actions:</dt>
         <dd>
-          <button mat-icon-button (click)="openProjectEditDialog(project)">
-            <mat-icon>edit</mat-icon>
+          <button mat-button (click)="openProjectEditDialog(project)">
+            Edit Project
           </button>
           <button mat-button (click)="openExpenseAddDialog()">
-            Add an Expense
+            Add Expense
           </button>
         </dd>
       </span>
